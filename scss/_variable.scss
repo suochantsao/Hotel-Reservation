@@ -1,2 +1,18 @@
+// Font 
+@font-face{
+    font-family: NotoSansCJKtc-Medium;
+    src: local('NotoSansCJKtc-Medium');
+}
+@font-face{
+    font-family: NotoSansCJKtc-DemiLight;
+    src: local('NotoSansCJKtc-DemiLight');
+}
+@font-face{
+    font-family: NotoSansCJKtc-Light;
+    src: local('NotoSansCJKtc-Light');
+}
 // Color
 $light_grey:#F7F7F7;
+$grey:#F0F0F0;
+$dark_grey:#6D7278;
+$btn_grey:#575757;

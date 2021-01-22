@@ -8,29 +8,28 @@
     width: 100%;
     box-shadow: 2px 2px 9px 0px lightgrey;
 
-    .singleR-pic1{
-        background-image: url('https://images.unsplash.com/photo-1515511856280-7b23f68d2996?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80');
+    .room_picture{
         background-size: cover;
         background-position: center;
+    }
+
+    .singleR-pic1{
+        background-image: url('https://images.unsplash.com/photo-1515511856280-7b23f68d2996?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80');
         width: 100%;
         height: 596px;
     }
 
     .s_pic{
         width: 38%;
-    
+
         .singleR-pic2{
             background-image: url('https://images.unsplash.com/photo-1526880792616-4217886b9dc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
             width: 100%;
             height: 298px;
     
         }
         .singleR-pic3{
             background-image: url('https://images.unsplash.com/photo-1551776235-dde6d482980b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80');
-            background-size: cover;
-            background-position: center;
             width: 100%;
             height: 298px;
     
@@ -38,21 +37,128 @@
     
     }
 }
+.room_content{
+    display: flex;
+    margin-top: 5%;
 
-.room_detail{
-    margin: 5% 0 0 8%;
-    width: 38%;
+    .room_detail{
+        margin-left: 8%;
+        width: 40%;
+        font-family: NotoSansCJKtc-Light;
+        // border: 1px solid black;
 
-    li{
-        line-height: 2rem;    
-    }
-    .room_title{
-        line-height: 7rem;
-        font-size: 3rem;
-    }
-    .en_roominfo{
-        line-height: 1.5rem;
-        margin-top: 4%;
+        h2{
+            font-family: NotoSansCJKtc-Medium;
+            
+        }
+        li{
+            line-height: 2rem;  
+            letter-spacing: 1.46px;  
+        }
+        .room_title{
+            line-height: 7rem;
+            font-size: 3rem;
+        }
+        .en_roominfo{
+            line-height: 1.5rem;
+            margin-top: 4%;
+            letter-spacing: 1.25px;
+            text-align: justify;
+        }
+        .checkInBlock{
+            margin-top: 10%;
+            display: flex;
+            flex-wrap: wrap;
+
+            .checkTitle{
+                width: 50%;
+            }
+            .timeStyle{
+                width: 50%;
+                font-size: 1.5rem;
+                letter-spacing: 4px;
+
+            }
+        }
+        .amenitiesBlock{
+            margin: 12% 0;
+            background-color: $grey;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 3% 0;
+    
+            img{
+                width: 30px;
+                height: 30px;
+                // border: black 1px solid;
+            }
+    
+            .iconBlock{
+                width: 25%;
+                margin: 2% 0 2% 7%;
+                display: flex;
+                // border: 1px solid black;
+    
+                .iconString{
+                    margin-left: 10%;
+                    font-size: 12px;
+                }
+            }
+    
+    
+        }
+
     }
 
+    .room_price{
+        margin: 3% 0 0 4%;
+        font-family: NotoSansCJKtc-DemiLight;
+        text-align: right;
+        // border: 1px solid black;
+        
+        .priceTitle{
+            font-size: 2rem;
+            letter-spacing: 3.13px;
+            line-height: 3rem;
+        }
+        .dateString{
+            color: $dark_grey;
+            letter-spacing: 1.46px;
+        }
+        .priceString{
+            letter-spacing: 1.67px;
+            line-height: 27px;
+            margin: 12% 0 3% 0;
+        }
+    }
+
+    .calenderBlock{
+
+        .calender{
+            width: 400px;
+            height: 400px;
+            margin: 8% 0 0 10%;
+            background-color: $light_grey;
+            box-shadow: 2px 2px 9px 0px lightgrey;
+            // border: black 1px solid;
+        }
+        .reserveBtn{
+            width: 118px;
+            height: 53px;
+            margin: 8% 0 0 10%;
+            background-color: $btn_grey;
+
+            a{
+                color: white;
+                text-decoration: none;
+                padding: 13% 0;
+            }
+            span{
+                display: inline-block;
+                text-align: center;
+                margin: 15% 22%;
+            }
+        }
+
+    }
 }

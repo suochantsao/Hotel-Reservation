@@ -1,18 +1,18 @@
 // API
-const url    = 'https://challenge.thef2e.com/api/thef2e2019/stage6/rooms';
-const token  = 'FYB131amsK8xaJqG19oUZV0ZSezrgUYo6oaNU3dCGQLmkYeLZtPiY0wVj3Np';
-const config = { headers: { Authorization: `Bearer ${token}` } };
+const allRoomsUrl    = 'https://challenge.thef2e.com/api/thef2e2019/stage6/rooms';
+const token          = 'FYB131amsK8xaJqG19oUZV0ZSezrgUYo6oaNU3dCGQLmkYeLZtPiY0wVj3Np';
+const config         = { headers: { Authorization: `Bearer ${token}` } };
 
 // DOM
 const bgimageBlock = document.querySelector('.bgImage');
 
 // Object
-let bgimage        = {}; 
+let bgimage = {}; 
 
 // ,.♫_____________________♪____________________♫,. //
 // axios GET
 axios
-  .get( url,config )
+  .get( allRoomsUrl,config )
   .then(res =>
     // console.log(res.data.items[4].imageUrl)
     bgimage = res.data.items[4].imageUrl
