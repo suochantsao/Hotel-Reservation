@@ -133,11 +133,11 @@
     }
 
     .calenderBlock{
-
+        
         .calender{
             width: 400px;
             height: 400px;
-            margin: 8% 0 0 10%;
+            margin: 8% 0 0 15%;
             background-color: $light_grey;
             box-shadow: 2px 2px 9px 0px lightgrey;
             // border: black 1px solid;
@@ -145,7 +145,7 @@
         .reserveBtn{
             width: 118px;
             height: 53px;
-            margin: 8% 0 0 10%;
+            margin: 8% 0 0 15%;
             background-color: $btn_grey;
 
             a{
