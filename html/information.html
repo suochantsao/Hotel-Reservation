@@ -3,21 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.css' integrity='sha512-OtwMKauYE8gmoXusoKzA/wzQoh7WThXJcJVkA29fHP58hBF7osfY0WLCIZbwkeL9OgRCxtAfy17Pn3mndQ4PZQ==' crossorigin='anonymous'/>
     <link rel="stylesheet" href="../css/all.min.css">
     <title>White Space</title>
 </head>
 <body>
-
-    <div class="loader">
-        <div class="duo duo1">
-          <div class="dot dot-a"></div>
-          <div class="dot dot-b"></div>
-        </div>
-        <div class="duo duo2">
-          <div class="dot dot-a"></div>
-          <div class="dot dot-b"></div>
-        </div>
-    </div>
 
     <header>
 
@@ -43,8 +33,11 @@
 
         <ul class="room_price"></ul>
         
-        <ul class="calenderBlock">
-            <li class="calender"> </li>
+        <ul class="calendarBlock">
+            <li class="calendar">
+                <input type="text" id="calendar-zhtw">
+            </li>
+            
             <li class="reserveBtn">
                 <a href="#"><span>預約時段</span></a>
             </li>
@@ -52,8 +45,20 @@
 
     </div>
 
+    <div class="loader">
+        <div class="duo duo1">
+          <div class="dot dot-a"></div>
+          <div class="dot dot-b"></div>
+        </div>
+        <div class="duo duo2">
+          <div class="dot dot-a"></div>
+          <div class="dot dot-b"></div>
+        </div>
+    </div>
     
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js' integrity='sha512-+ruHlyki4CepPr07VklkX/KM5NXdD16K1xVwSva5VqOVbsotyCQVKEwdQ1tAeo3UkHCXfSMtKU/mZpKjYqkxZA==' crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/l10n/zh-tw.min.js' integrity='sha512-utbcg6U6vgIOyse0y+CgWQrhWwcAVKS6IxNM29eb5jMUmgYVvf/8H5BorpIXMSDUL6EBOSuJRfQt6qraFOwGAA==' crossorigin='anonymous'></script>
     <script src="../js/info.js"></script>
 </body>
 </html>

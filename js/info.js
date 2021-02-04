@@ -139,3 +139,12 @@ function loaderRender(){
 }
 
 window.addEventListener('load',loaderRender);
+
+// ,.♫_____________________♪____________________♫,. //
+// Calendar Block
+flatpickr('#calendar-zhtw', {
+    "locale": "zh_tw",
+    "dateFormat": "Y/m/d",
+    "inline": true,
+    "minDate": "today"
+});
