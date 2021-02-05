@@ -14,7 +14,6 @@
     }
 
     .detail_pic1{
-        background-image: url('https://images.unsplash.com/photo-1515511856280-7b23f68d2996?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80');
         width: 100%;
         height: 596px;
     }
@@ -23,16 +22,12 @@
         width: 38%;
 
         .detail_pic2{
-            background-image: url('https://images.unsplash.com/photo-1526880792616-4217886b9dc2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             width: 100%;
             height: 298px;
-    
         }
         .detail_pic3{
-            background-image: url('https://images.unsplash.com/photo-1551776235-dde6d482980b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80');
             width: 100%;
             height: 298px;
-    
         }
     
     }
@@ -166,15 +161,12 @@
             margin-top: 8%;
             background-color: $btn_grey;
 
-            a{
-                color: white;
-                text-decoration: none;
-                padding: 13% 0;
-            }
             span{
+                color: white;
                 display: inline-block;
                 text-align: center;
                 margin: 15% 22%;
+                cursor: pointer;
             }
         }
 
@@ -193,92 +185,217 @@
     height: 100%;
     background-color: white;
     align-items: center;
-  }
+}
 
-  .hidden{
+.hidden {
     animation: fadeOut 0.3s;
     animation-delay: 1s;
     animation-fill-mode: forwards;
-    }
+}
   
-  .duo {
+.duo {
     height: 20px;
     width: 50px;
     background: hsla(0, 0%, 0%, 0.0);
     position: absolute;
     margin-left: 46%;
-  }
+
+    .dot {
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background: #333;
+        position: absolute;
+    }
+      
+    .dot-a {
+        left: 0px;  
+    }
+      
+    .dot-b {
+        right: 0px;
+    }
+
+}
   
-  .duo, .dot {
+.duo, .dot {
     animation-duration: 0.8s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
-  }
+}
   
-  .duo1 {
+.duo1 {
     left: 0;
-  }
+    animation-name: spin;
+
+    .dot-a {
+        opacity: 0;
+        animation-name: onOff;
+        animation-direction: reverse;
+    }
+}
   
-  .duo2 {
-    left: 30px
-  }
+.duo2 {
+    left: 30px;
+    animation-name: spin;
+    animation-direction: reverse;
+
+    .dot-b {
+        animation-name: onOff;
+    }
+}
   
-  
-  .dot {
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    background: #333;
-    position: absolute;
-  }
-  
-  .dot-a {
-    left: 0px;  
-  }
-  
-  .dot-b {
-    right: 0px;
-  }
-  
-  
-  @keyframes spin {
+@keyframes spin {
       0% { transform: rotate(0deg) }
      50% { transform: rotate(180deg) }
     100% { transform: rotate(180deg) }
-  }
+}
   
-  @keyframes onOff {
+@keyframes onOff {
       0% { opacity: 0; }
      49% { opacity: 0; }
      50% { opacity: 1; }
     100% { opacity: 1; }
-  }
-  
-  .duo1 {
-    animation-name: spin;
-  }
-  
-  .duo2 {
-    animation-name: spin;
-    animation-direction: reverse;
-  }
-  
-  .duo2 .dot-b {
-    animation-name: onOff;
-  }
-  
-  .duo1 .dot-a {
-    opacity: 0;
-    animation-name: onOff;
-    animation-direction: reverse;
-  }
+}
 
-  @keyframes fadeOut{
+@keyframes fadeOut{
       100% {
         opacity: 0;
         visibility: hidden;
       }
-  }
+}
 
-
-  
+// Dialog Box
+.dialogStyle{
+    display: flex;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    
+    .dialogBox{
+        opacity: 1;
+        width: 423px;
+        height: 485px;
+        margin-left: 36%;
+        background-color: white;
+        font-family: NotoSansCJKtc-Medium;
+        
+        h3{
+            font-size: 24px;
+            padding: 9% 0 11% 9%;
+            letter-spacing: 2.51px;
+        }
+    
+        li{
+            list-style: none;
+            padding-left: 9%;
+            letter-spacing: 1.46px;
+    
+            .inputStyle{
+                padding-left: 3%;
+                height: 2em;
+                outline: none;
+                margin-bottom: 4%;
+                border-radius: 5px;
+                border: 1px solid $input_grey;
+    
+            }
+            .basicInput{
+                width: 243px;
+                margin-left: 15%;
+            }
+            .dateInput{
+                width: 91px;
+                margin: 0 3.5% 0 4.5%; 
+            }
+    
+        }
+    
+        .countArea{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 8% 0 3% 0;
+            background-color: $dialog_grey;
+    
+            li{
+                width: 35.5%;
+                font-size: 12px;
+                color: $dark_grey;
+                line-height: 1.5em;
+                letter-spacing: 1.25px;
+    
+            }
+            .normalDays{
+                margin-top: 5%;
+            }
+            .holidays{
+                margin-bottom: 5%;
+            }
+            .daysCount{
+                text-align: right;
+                margin-right: 6%;
+            }
+    
+        }
+        .priceArea{
+            font-size: 26px;
+            margin-right: 10%;
+            color: $font_red;
+            text-align: right;
+            letter-spacing: 2.72px;
+    
+            span{
+                display: inline-block;
+                margin-left: 8%;
+            }
+        }
+        
+        .btnBlock{
+            display: flex;
+            
+            .btnStyle{
+                height: 37px;
+                font-size: 14px;
+                margin-top: 8%;
+                cursor: pointer;
+    
+            }
+            .cancleBtn{
+                padding: 0;
+                width: 78px;
+                margin-left: 9%;
+                color: $dark_grey;
+                background-color: $dialog_grey;
+        
+                span{
+                    margin: 14% 0 0 28%;
+                    display: inline-block;
+                }
+            }
+    
+            .confirmBtn{
+                color: white;
+                margin-left: 38%;
+                width: 107px;
+                padding: 0;
+                background-color: $confirm_grey;
+    
+                span{
+                    margin: 10% 0 0 22%;
+                    display: inline-block;
+    
+                }
+            }
+        }
+        
+    }
+    
+}
+.dialogNone{
+    display: none;
+}

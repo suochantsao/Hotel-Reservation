@@ -8,7 +8,9 @@ const picturesArea = document.querySelector('.pictureBlock');
 const infoBlock    = document.querySelector('.roomInfoBlock');
 const checkInBlock = document.querySelector('.checkInBlock');
 const amenityBlock = document.querySelector('.amenitiesBlock');
+const dialogBlock  = document.querySelector('.dialogBlock');
 const priceBlock   = document.querySelector('.room_price');
+const reserveBtn   = document.querySelector('.reserveBtn');
 
 // Object
 let roomInfo;
@@ -147,4 +149,39 @@ flatpickr('#calendar-zhtw', {
     "dateFormat": "Y/m/d",
     "inline": true,
     "minDate": "today"
+});
+
+// ,.♫_____________________♪____________________♫,. //
+// Dialog Block
+function dialogRender(){
+    dialogBlock.className += ' dialogStyle';
+    dialogBlock.classList.remove('dialogNone');
+
+}
+
+reserveBtn.addEventListener('click',dialogRender);
+
+// Cancle Button in the Dialog
+function cancleReserve(e){
+    console.log(e); 
+    if(e.target.className === "cancleSpan"){
+        dialogBlock.classList.add('dialogNone');
+        dialogBlock.classList.remove('dialogStyle');
+    }
+    else if(e.target.className === "cancleBtn btnStyle"){
+        dialogBlock.classList.add('dialogNone');
+        dialogBlock.classList.remove('dialogStyle');
+    }
+    else if(e.target.className === "dialogBlock dialogStyle"){
+        dialogBlock.classList.add('dialogNone');
+        dialogBlock.classList.remove('dialogStyle');
+    }
+}
+
+dialogBlock.addEventListener('click',cancleReserve);
+
+// Calendar in Dialog 
+flatpickr('#startDate', {
+    "dateFormat": "Y/m/d",
+    "plugins": [new rangePlugin({ input: "#endDate"})]
 });

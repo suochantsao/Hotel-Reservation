@@ -39,7 +39,7 @@
             </li>
             
             <li class="reserveBtn">
-                <a href="#"><span>預約時段</span></a>
+                <span>預約時段</span>
             </li>
         </ul>
 
@@ -56,9 +56,40 @@
         </div>
     </div>
     
+    <div class="dialogBlock dialogNone">
+
+        <div class="dialogBox">
+
+            <h3 class="dialogTitle">預約時段</h3>  
+            <li>姓名<input type="text" class="basicInput inputStyle" value=""></li>
+            <li>電話<input type="text" class="basicInput inputStyle" value=""></li>
+            <li>預約起訖
+                <input type="text" id='startDate' class="dateInput inputStyle" value="">~
+                <input type="text" id='endDate'class="dateInput inputStyle" value="">
+            </li>
+
+            <div class="countArea">
+                <li class="normalDays">平日時段</li>
+                <li class="normalDays daysCount">1夜</li>
+                <li class="holidays">假日時段</li>
+                <li class="holidays daysCount">1夜</li>
+            </div>
+
+            <li class="priceArea">= <span>NT.2850</span></li>
+
+            <div class="btnBlock">
+                <li class="cancleBtn btnStyle"><span class="cancleSpan">取消</span></li>
+                <li class="confirmBtn btnStyle"><span>確定預約</span></li>    
+            </div>
+
+        </div>
+
+    </div>
+    
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js' integrity='sha512-+ruHlyki4CepPr07VklkX/KM5NXdD16K1xVwSva5VqOVbsotyCQVKEwdQ1tAeo3UkHCXfSMtKU/mZpKjYqkxZA==' crossorigin='anonymous'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/l10n/zh-tw.min.js' integrity='sha512-utbcg6U6vgIOyse0y+CgWQrhWwcAVKS6IxNM29eb5jMUmgYVvf/8H5BorpIXMSDUL6EBOSuJRfQt6qraFOwGAA==' crossorigin='anonymous'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/plugins/rangePlugin.min.js' integrity='sha512-fEfYg/xxuu15Bma40+0fjFdH37rFqYOqCiK+wA4AzCcK4I9Dp9V4dRCDPTz9uHPUX+ErWhuP86EzOGI4fy3YBQ==' crossorigin='anonymous'></script>
     <script src="../js/info.js"></script>
 </body>
 </html>
