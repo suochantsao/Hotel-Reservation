@@ -11,6 +11,9 @@ const amenityBlock = document.querySelector('.amenitiesBlock');
 const dialogBlock  = document.querySelector('.dialogBlock');
 const priceBlock   = document.querySelector('.room_price');
 const reserveBtn   = document.querySelector('.reserveBtn');
+const confirmBtn   = document.querySelector('.confirmBtn');
+const nameInput    = document.getElementById('nameInput'); 
+const phoneInput   = document.getElementById('phoneNumInput');
 
 // Object
 let roomInfo;
@@ -26,7 +29,7 @@ axios
   .then(res => {
     roomInfo     = res.data.room[0];
     amenityItems = roomInfo.amenities;
-    console.log('test axios');
+    console.log('axios GET succeed');
     roomPicRender();
     infoRender();
     checkinRender();
@@ -156,23 +159,19 @@ flatpickr('#calendar-zhtw', {
 function dialogRender(){
     dialogBlock.className += ' dialogStyle';
     dialogBlock.classList.remove('dialogNone');
-
 }
 
 reserveBtn.addEventListener('click',dialogRender);
 
 // Cancle Button in the Dialog
 function cancleReserve(e){
-    console.log(e); 
-    if(e.target.className === "cancleSpan"){
+    let pressName = e.target.className;
+
+    if( pressName === "cancleSpan" || pressName === "dialogBlock dialogStyle"){
         dialogBlock.classList.add('dialogNone');
         dialogBlock.classList.remove('dialogStyle');
     }
     else if(e.target.className === "cancleBtn btnStyle"){
-        dialogBlock.classList.add('dialogNone');
-        dialogBlock.classList.remove('dialogStyle');
-    }
-    else if(e.target.className === "dialogBlock dialogStyle"){
         dialogBlock.classList.add('dialogNone');
         dialogBlock.classList.remove('dialogStyle');
     }
@@ -181,7 +180,22 @@ function cancleReserve(e){
 dialogBlock.addEventListener('click',cancleReserve);
 
 // Calendar in Dialog 
-flatpickr('#startDate', {
+const calendar = flatpickr('#startDate', {
+    "minDate": "today",
     "dateFormat": "Y/m/d",
     "plugins": [new rangePlugin({ input: "#endDate"})]
 });
+
+// Testing to get the value from each input
+window.addEventListener('mouseup',()=>console.log(calendar.selectedDates));
+
+confirmBtn.addEventListener('click',()=>console.log(nameInput.value));
+confirmBtn.addEventListener('click',()=>console.log(phoneInput.value));
+
+// confirmBtn.addEventListener('click',test);
+function test(e){
+    console.log(e);
+}
+
+const fp = document.querySelector("#startDate")._flatpickr;
+confirmBtn.addEventListener('click',()=>console.log(fp));
