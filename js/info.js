@@ -4,6 +4,7 @@ const token          = 'FYB131amsK8xaJqG19oUZV0ZSezrgUYo6oaNU3dCGQLmkYeLZtPiY0wV
 const config         = { headers: { Authorization: `Bearer ${token}` } };
 
 // DOM
+const fp           = document.querySelector("#startDate")._flatpickr;
 const picturesArea = document.querySelector('.pictureBlock'); 
 const countBlock   = document.querySelector('.countArea');
 const totalPrice   = document.querySelector('.priceArea');
@@ -32,7 +33,10 @@ axios
   .then(res => {
     roomInfo     = res.data.room[0];
     amenityItems = roomInfo.amenities;
-    console.log('axios GET succeed');
+    // 檢查預約成功的明細
+    console.log('axios POST booking list');
+    console.log(res.data.booking);
+
     roomPicRender();
     infoRender();
     checkinRender();
@@ -261,32 +265,76 @@ function priceRender(){
     totalPrice.innerHTML = priceStr;
 }
 
-dialogBlock.addEventListener('mouseout',dateCalculate);
+dialogBlock.addEventListener('mousemove',dateCalculate);
 
 // Confirm to order the rooms
-const fp = document.querySelector("#startDate")._flatpickr;
-
-confirmBtn.addEventListener('click',confirmInfo);
-
 function confirmInfo(){
     let nameInfo  = nameInput.value;
     let phoneInfo = phoneInput.value;
     let currentYear;
     let currentMonth;
     let currentDate;
+    let monthName;
+    let dateAry = [];
 
-    selectDates.forEach((item)=>{
-        console.log(item);
-        currentYear  = item.slice(11,15);   
-        // currentMonth = item.slice(11,15);
-        // currentDate  = item.slice(11,15);
+    selectDates.forEach(item => {
+        currentYear  = item.slice(11,15);
+        monthName = item.slice(4,7);
+        currentDate  = item.slice(8,10);
+
+
+        if(monthName === 'Jan'){
+            currentMonth = '01'; 
+        }else if(monthName === 'Feb'){
+            currentMonth = '02';
+        }else if(monthName === 'Mar'){
+            currentMonth = '03';
+        }else if(monthName === 'Apr'){
+            currentMonth = '04';
+        }else if(monthName === 'May'){
+            currentMonth = '05';
+        }else if(monthName === 'Jun'){
+            currentMonth = '06';
+        }else if(monthName === 'Jul'){
+            currentMonth = '07';
+        }else if(monthName === 'Aug'){
+            currentMonth = '08';
+        }else if(monthName === 'Sep'){
+            currentMonth = '09';
+        }else if(monthName === 'Oct'){
+            currentMonth = '10';
+        }else if(monthName === 'Nov'){
+            currentMonth = '11';
+        }else if(monthName === 'Dec'){
+            currentMonth = '12';
+        }
+    
+        let dateInfo = `${currentYear}-${currentMonth}-${currentDate}`;
+        // console.log(dateInfo);
+
+        dateAry.push(dateInfo);
         
-        // console.log(`${currentYear}-${currentMonth}-${currentDate}`);
     });
 
-    // console.log(currentYear);
-
-    // console.log(nameInfo);
-    // console.log(phoneInfo);
-    // console.log(selectDates);
+    postData(nameInfo,phoneInfo,dateAry);
+    
 }
+
+// Post axios
+function postData(nameData,telData,dateData){
+
+    axios
+    .post(roomDetailUrl+currentId,{
+        name: nameData,
+        tel: telData,
+        date: dateData
+    },config)
+    .then(res => console.log(res))
+    .catch(err => console.error(err));
+
+}
+
+confirmBtn.addEventListener('click',confirmInfo);
+
+
+// Order sucessed render
