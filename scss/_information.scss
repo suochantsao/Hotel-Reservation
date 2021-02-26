@@ -160,6 +160,8 @@
             height: 53px;
             margin-top: 8%;
             background-color: $btn_grey;
+            display: inline-block;
+            cursor: pointer;
 
             span{
                 color: white;
@@ -169,7 +171,9 @@
                 cursor: pointer;
             }
         }
-
+        .delAllBtn{
+            margin-left: 7%;
+        }
     }
 }
 
@@ -391,8 +395,41 @@
     
                 }
             }
+
+            .backPageBtn{
+                width: 85px;
+                margin: 6% 0 0 70%;
+
+                span{
+                    margin: 13% 0 0 22%;
+                    display: inline-block;
+                }
+
+            }
+
+            .failBackBtn{
+                width: 80px;
+                margin: 15% 0 0 72%;
+
+                span{
+                    margin: 13% 0 0 30%;
+                    display: inline-block;
+                }
+            }
         }
         
+    }
+    .confirmBox{
+        height: 260px;
+
+        .checkCircle{
+            background-image: url(../img/tick-inside-circle.svg);
+            background-size: cover;
+            background-position: center;
+            width: 5%;
+            height: 58px;
+            margin-left: 40%;
+        }
     }
     
 }

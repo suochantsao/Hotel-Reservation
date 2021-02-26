@@ -42,6 +42,10 @@
             <li class="reserveBtn">
                 <span>預約時段</span>
             </li>
+            <li class="reserveBtn delAllBtn">
+                <span>取消預約</span>
+            </li>
+
 
         </ul>
 
@@ -82,7 +86,37 @@
         </div>
 
     </div>
+
+    <div class="sucessBlock dialogStyle dialogNone">
+
+        <div class="dialogBox confirmBox">
+
+            <h3 class="dialogTitle">預約成功</h3> 
+            <li class="checkCircle"></li> 
+
+            <div class="btnBlock">
+                <li class="confirmBtn btnStyle backPageBtn"><span class="cancleSpan">回頁面</span></li>    
+            </div>
+
+        </div>
+
+    </div>
     
+    <div class="failBlock dialogStyle dialogNone">
+
+        <div class="dialogBox confirmBox">
+
+            <h3 class="dialogTitle">預約失敗</h3> 
+            <li>預約時間已被預定</li> 
+
+            <div class="btnBlock">
+                <li class="confirmBtn btnStyle failBackBtn"><span class="cancleSpan">返回</span></li>    
+            </div>
+
+        </div>
+
+    </div>
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js' integrity='sha512-+ruHlyki4CepPr07VklkX/KM5NXdD16K1xVwSva5VqOVbsotyCQVKEwdQ1tAeo3UkHCXfSMtKU/mZpKjYqkxZA==' crossorigin='anonymous'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/l10n/zh-tw.min.js' integrity='sha512-utbcg6U6vgIOyse0y+CgWQrhWwcAVKS6IxNM29eb5jMUmgYVvf/8H5BorpIXMSDUL6EBOSuJRfQt6qraFOwGAA==' crossorigin='anonymous'></script>

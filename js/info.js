@@ -1,5 +1,6 @@
 // API
 const roomDetailUrl  = 'https://challenge.thef2e.com/api/thef2e2019/stage6/room/';
+const roomAPI        = 'https://challenge.thef2e.com/api/thef2e2019/stage6/rooms';
 const token          = 'FYB131amsK8xaJqG19oUZV0ZSezrgUYo6oaNU3dCGQLmkYeLZtPiY0wVj3Np';
 const config         = { headers: { Authorization: `Bearer ${token}` } };
 
@@ -13,8 +14,12 @@ const checkInBlock = document.querySelector('.checkInBlock');
 const amenityBlock = document.querySelector('.amenitiesBlock');
 const dialogBlock  = document.querySelector('.dialogBlock');
 const priceBlock   = document.querySelector('.room_price');
+const sucessBlock  = document.querySelector('.sucessBlock');
+const failedBlock  = document.querySelector('.failBlock');
 const reserveBtn   = document.querySelector('.reserveBtn');
 const confirmBtn   = document.querySelector('.confirmBtn');
+const backPageBtn  = document.querySelector('.backPageBtn');
+const delAllBtn    = document.querySelector('.delAllBtn');
 const nameInput    = document.getElementById('nameInput'); 
 const phoneInput   = document.getElementById('phoneNumInput');
 
@@ -267,7 +272,8 @@ function priceRender(){
 
 dialogBlock.addEventListener('mousemove',dateCalculate);
 
-// Confirm to order the rooms
+// ,.♫_____________________♪____________________♫,. //
+// * Confirm to order the rooms
 function confirmInfo(){
     let nameInfo  = nameInput.value;
     let phoneInfo = phoneInput.value;
@@ -281,7 +287,6 @@ function confirmInfo(){
         currentYear  = item.slice(11,15);
         monthName = item.slice(4,7);
         currentDate  = item.slice(8,10);
-
 
         if(monthName === 'Jan'){
             currentMonth = '01'; 
@@ -310,7 +315,6 @@ function confirmInfo(){
         }
     
         let dateInfo = `${currentYear}-${currentMonth}-${currentDate}`;
-        // console.log(dateInfo);
 
         dateAry.push(dateInfo);
         
@@ -329,8 +333,14 @@ function postData(nameData,telData,dateData){
         tel: telData,
         date: dateData
     },config)
-    .then(res => console.log(res))
-    .catch(err => console.error(err));
+    .then(res => {
+        sucessRender();
+        console.log(res);
+    })
+    .catch(err => {
+        failRender();
+        console.error(err);
+    });
 
 }
 
@@ -338,3 +348,59 @@ confirmBtn.addEventListener('click',confirmInfo);
 
 
 // Order sucessed render
+function sucessRender(){
+    sucessBlock.classList.remove('dialogNone');
+    dialogBlock.classList.add('dialogNone');
+    dialogBlock.classList.remove('dialogStyle');
+}
+// Back to page Button in sucessDialog
+function backToPage(e){
+    let pressName = e.target.className;
+
+    if( pressName === "cancleSpan" || pressName === "sucessBlock dialogStyle"){
+        sucessBlock.classList.add('dialogNone');
+    }
+    else if(e.target.className === "cancleBtn btnStyle"){
+        sucessBlock.classList.add('dialogNone');
+    }
+}
+
+sucessBlock.addEventListener('click',backToPage);
+
+// Order failed render
+function failRender(){
+    failedBlock.classList.remove('dialogNone');
+    dialogBlock.classList.add('dialogNone');
+    dialogBlock.classList.remove('dialogStyle');
+}
+
+// Back to page Button in failDialog
+function failBackPage(e){
+    let pressName = e.target.className;
+
+    if( pressName === "cancleSpan" || pressName === "failBlock dialogStyle"){
+        failedBlock.classList.add('dialogNone');
+    }
+    else if(e.target.className === "cancleBtn btnStyle"){
+        failedBlock.classList.add('dialogNone');
+    }
+}
+
+failedBlock.addEventListener('click',failBackPage);
+
+// ,.♫_____________________♪____________________♫,. //
+// * Cancle all the orders
+function delAllOrder(){
+
+    axios
+    .delete(roomAPI,config)
+    .then(res => {
+        console.log(res)
+        window.location.reload(false);
+    })
+        
+    .catch(err => console.error(err));
+
+}
+
+delAllBtn.addEventListener('click',delAllOrder);
