@@ -24,7 +24,7 @@ const nameInput    = document.getElementById('nameInput');
 const phoneInput   = document.getElementById('phoneNumInput');
 
 // Object
-let roomInfo;
+let roomInfo = {};
 let selectDates = [];
 
 // Check the url's id
@@ -41,7 +41,7 @@ axios
     // 檢查預約成功的明細
     console.log('axios POST booking list');
     console.log(res.data.booking);
-
+    
     roomPicRender();
     infoRender();
     checkinRender();
@@ -99,51 +99,51 @@ function priceRender(){
 // Amenities block render
 function amenityRender(){
     let str = `<ul class="iconBlock ${!amenityItems['Wi-Fi'] ? 'grey' : ''}">
-    <li><img src="/img/wifi.svg" alt="wifi"></li>
+    <li><img src="../img/wifi.svg" alt="wifi"></li>
     <li class="iconString">Wi-Fi</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Television'] ? 'grey' : ''}">
-    <li><img src="/img/phone.svg" alt="phone"></li>
+    <li><img src="../img/phone.svg" alt="phone"></li>
     <li class="iconString">電話</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Great-View'] ? 'grey' : ''}">
-    <li><img src="/img/mountain-range.svg" alt="moutainIcon"></li>
+    <li><img src="../img/mountain-range.svg" alt="moutainIcon"></li>
     <li class="iconString">漂亮的視野</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Breakfast'] ? 'grey' : ''}">
-    <li><img src="/img/breakfast.svg" alt="breakfast"></li>
+    <li><img src="../img/breakfast.svg" alt="breakfast"></li>
     <li class="iconString">早餐</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Air-Conditioner'] ? 'grey' : ''}">
-    <li><img src="/img/breeze.svg" alt="aircon"></li>
+    <li><img src="../img/breeze.svg" alt="aircon"></li>
     <li class="iconString">空調</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Smoke-Free'] ? 'grey' : ''}">
-    <li><img src="/img/no-smoke-symbol.svg" alt="noSmoke"></li>
+    <li><img src="../img/no-smoke-symbol.svg" alt="noSmoke"></li>
     <li class="iconString">禁止吸煙</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Mini-Bar'] ? 'grey' : ''}">
-    <li><img src="/img/bar.svg" alt="bar"></li>
+    <li><img src="../img/bar.svg" alt="bar"></li>
     <li class="iconString">Mini Bar</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Refrigerator'] ? 'grey' : ''}">
-    <li><img src="/img/fridge.svg" alt="fridge"></li>
+    <li><img src="../img/fridge.svg" alt="fridge"></li>
     <li class="iconString">冰箱</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Child-Friendly'] ? 'grey' : ''}">
-    <li><img src="/img/crawling-baby-silhouette.svg" alt="baby"></li>
+    <li><img src="../img/crawling-baby-silhouette.svg" alt="baby"></li>
     <li class="iconString">適合兒童</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Room-Service'] ? 'grey' : ''}">
-    <li><img src="/img/room_service.svg" alt="room-service"></li>
+    <li><img src="../img/room_service.svg" alt="room-service"></li>
     <li class="iconString">Room Service</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Sofa'] ? 'grey' : ''}">
-    <li><img src="/img/sofa.svg" alt="sofa"></li>
+    <li><img src="../img/sofa.svg" alt="sofa"></li>
     <li class="iconString">沙發</li>
 </ul>
 <ul class="iconBlock ${!amenityItems['Pet-Friendly'] ? 'grey' : ''}">
-    <li><img src="/img/dog.svg" alt="pets"></li>
+    <li><img src="../img/dog.svg" alt="pets"></li>
     <li class="iconString">寵物攜帶</li>
 </ul>`
     amenityBlock.innerHTML = str;

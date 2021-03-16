@@ -10,7 +10,6 @@ const roomItems = document.querySelector('.content');
 let eachRoominfo = []; 
 
 // ,.♫_____________________♪____________________♫,. //
-
 // GET all Room information
 axios
   .get(allRoomsUrl, config)
